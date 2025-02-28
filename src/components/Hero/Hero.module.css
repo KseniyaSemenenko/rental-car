@@ -2,7 +2,7 @@
   background-image: url(../../images/hero.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 440px 329px 60px;
+  padding: 440px 329px 60px 328px;
 }
 .title {
   font-weight: 700;

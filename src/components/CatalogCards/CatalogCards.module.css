@@ -1,0 +1,9 @@
+.catalogList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px 32px;
+  padding: 56px 0 80px;
+}
+.catalogListItem {
+  width: calc((100% - 96px) / 4);
+}

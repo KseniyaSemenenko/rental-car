@@ -1,0 +1,15 @@
+.containerCarPage {
+  padding: 84px 120px 104px;
+  display: flex;
+  gap: 72px;
+}
+.imgCar {
+  border-radius: 19px;
+  width: 640px;
+  height: 512px;
+  margin-bottom: 40px;
+}
+.textContainer {
+  width: 488px;
+  height: 180px;
+}

@@ -1,7 +1,4 @@
 .btn {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.25;
   color: #fff;
   background-color: #3470ff;
   border-radius: 12px;
@@ -9,6 +6,9 @@
   width: 276px;
   height: 44px;
   border: transparent;
+}
+.btn:hover {
+  background-color: #0b44cd;
 }
 .view {
   display: flex;
@@ -19,6 +19,7 @@
   padding: 12px 51px;
 }
 .readMore {
+  padding: 12px 97px;
 }
 .loadMore {
   width: 156px;
@@ -26,4 +27,10 @@
   border: 1px solid #3470ff;
   background-color: transparent;
   color: #101828;
+  display: flex;
+  margin: 0 auto;
+}
+.loadMore:hover {
+  border: 1px solid #0b44cd;
+  background-color: transparent;
 }

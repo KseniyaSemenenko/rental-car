@@ -17,3 +17,15 @@ export const fetchAllCars = createAsyncThunk(
     }
   }
 );
+export const fetchCarProfile = createAsyncThunk(
+  'cars/fetchCar',
+  async (id, thunkAPI) => {
+    try {
+      const response = await carsCatalogApi.get(`/cars/${id}`);
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

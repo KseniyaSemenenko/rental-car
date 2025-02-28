@@ -1,0 +1,16 @@
+.wrapperInfo {
+  margin-bottom: 110px;
+}
+.wrapperName {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.listInfoItem {
+  display: flex;
+  margin-bottom: 16px;
+}
+.listInfoItem p {
+  margin-left: 8px;
+}
