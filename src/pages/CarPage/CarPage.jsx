@@ -9,6 +9,7 @@ import CarProfile from '../../components/CarProfile/CarProfile';
 import css from './CarPage.module.css';
 import CarInfo from '../../components/CarInfo/CarInfo';
 import FormCar from '../../components/FormCar/FormCar';
+import { Loader } from '../../components/Loader/Loader';
 
 export default function CarPage() {
   const carProfile = useSelector(selectCarProfile);
@@ -20,7 +21,7 @@ export default function CarPage() {
     dispatch(fetchCarProfile(id));
   }, [dispatch, id]);
 
-  if (!carProfile) return <p>Loading...</p>;
+  if (!carProfile) return <Loader />;
 
   return (
     <div className={css.containerCarPage}>

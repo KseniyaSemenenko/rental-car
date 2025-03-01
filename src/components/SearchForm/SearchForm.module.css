@@ -1,0 +1,36 @@
+.searchFormContainer {
+  padding: 0 138px;
+}
+.formWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-end;
+}
+.label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+}
+.formFieldMile {
+  border-right: 1px solid #dadde1;
+  border-radius: 12px 0 0 12px;
+  width: 160px;
+  height: 44px;
+  background: #f7f7f7;
+  box-sizing: border-box;
+  padding: 12px 24px;
+  color: #101828;
+  border: none;
+}
+.formFieldMile:focus {
+  outline: transparent;
+}
+.mileageBlock {
+  display: flex;
+}
+.right {
+  border-radius: 0 12px 12px 0;
+  border-left: 1px solid #dadde1;
+}

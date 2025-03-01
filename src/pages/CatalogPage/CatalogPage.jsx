@@ -1,12 +1,16 @@
-import Button from '../../components/Button/Button';
 import CatalogCards from '../../components/CatalogCards/CatalogCards';
 import { useEffect } from 'react';
 import { fetchAllCars } from '../../redux/catalog/operations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './CatalogPage.module.css';
+import { selectError, selectLoading } from '../../redux/catalog/selectors';
+import { Loader } from '../../components/Loader/Loader';
+import SearchForm from '../../components/SearchForm/SearchForm';
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchAllCars());
@@ -14,9 +18,10 @@ export default function CatalogPage() {
 
   return (
     <div className={css.catalogWrapper}>
-      <Button text="Search" variant="search" />
+      <SearchForm />
+      {loading && <Loader />}
+      {error && <p>{error}</p>}
       <CatalogCards />
-      <Button text="Load more" variant="loadMore" />
     </div>
   );
 }

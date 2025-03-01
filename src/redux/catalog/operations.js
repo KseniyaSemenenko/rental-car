@@ -29,3 +29,15 @@ export const fetchCarProfile = createAsyncThunk(
     }
   }
 );
+export const fetchBrands = createAsyncThunk(
+  'brands/fetchAll',
+  async (_, thunkAPI) => {
+    try {
+      const response = await carsCatalogApi.get('/brands');
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
