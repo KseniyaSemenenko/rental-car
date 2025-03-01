@@ -8,6 +8,7 @@ import CarProfile from '../../components/CarProfile/CarProfile';
 
 import css from './CarPage.module.css';
 import CarInfo from '../../components/CarInfo/CarInfo';
+import FormCar from '../../components/FormCar/FormCar';
 
 export default function CarPage() {
   const carProfile = useSelector(selectCarProfile);
@@ -25,6 +26,7 @@ export default function CarPage() {
     <div className={css.containerCarPage}>
       <div>
         <img className={css.imgCar} src={carProfile.img} alt="" />
+        <FormCar />
       </div>
       <div className={css.textContainer}>
         <CarProfile carDetails={carProfile} />

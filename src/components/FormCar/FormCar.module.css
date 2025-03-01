@@ -1,0 +1,43 @@
+.formContainer {
+  box-sizing: border-box;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  width: 640px;
+  padding: 32px;
+}
+.formName {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.formSubname {
+  color: #8d929a;
+  margin-bottom: 24px;
+}
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+}
+.formField {
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+  border-radius: 12px;
+  padding: 14px 20px;
+  width: 576px;
+  background-color: #f7f7f7;
+  border: none;
+  color: #8d929a;
+}
+.formField:focus {
+  outline: transparent;
+  color: #8d929a;
+  background-color: #f7f7f7;
+}
+
+.error {
+  color: red;
+}

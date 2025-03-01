@@ -1,4 +1,5 @@
 .btn {
+  font-weight: 600;
   color: #fff;
   background-color: #3470ff;
   border-radius: 12px;
@@ -33,4 +34,10 @@
 .loadMore:hover {
   border: 1px solid #0b44cd;
   background-color: transparent;
+}
+.send {
+  width: 156px;
+  padding: 12px 58px;
+  display: flex;
+  margin: 0 auto;
 }
