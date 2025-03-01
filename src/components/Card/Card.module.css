@@ -19,3 +19,15 @@
   color: #8d929a;
   margin-bottom: 28px;
 }
+.wrapperCard {
+  position: relative;
+}
+.iconHeart {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+.iconHeart:hover {
+  fill: #3470ff;
+}

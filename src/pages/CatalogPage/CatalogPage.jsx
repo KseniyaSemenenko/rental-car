@@ -14,6 +14,10 @@ export default function CatalogPage() {
 
   useEffect(() => {
     dispatch(fetchAllCars());
+    console.log(
+      'Loaded favorites from localStorage:',
+      localStorage.getItem('favoriteCars')
+    );
   }, [dispatch]);
 
   return (
