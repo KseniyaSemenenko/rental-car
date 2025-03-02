@@ -39,6 +39,7 @@ const carsSlice = createSlice({
         state.error = null;
         state.cars = action.payload.cars;
         state.totalCars = action.payload.totalCars;
+        state.currentPage = 1;
       })
       .addCase(fetchAllCars.rejected, handleRejected)
       .addCase(loadMoreCars.fulfilled, (state, action) => {

@@ -17,7 +17,6 @@ const initialValues = {
 
 export default function FormCar() {
   const handleSubmit = (values, actions) => {
-    console.log(values);
     toast.success('Car successfully rented!');
     actions.resetForm();
   };
@@ -55,8 +54,11 @@ export default function FormCar() {
               onChange={date => setFieldValue('date', date)}
               dateFormat="dd-MM-yyyy"
               className={css.formField}
+              calendarClassName={css.customCalendar}
               placeholderText="Booking date"
+              minDate={new Date()}
             />
+
             <Field
               as="textarea"
               rows="2"

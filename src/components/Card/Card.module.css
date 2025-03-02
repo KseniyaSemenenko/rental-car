@@ -28,7 +28,6 @@
   right: 16px;
   cursor: pointer;
   pointer-events: auto;
-  z-index: 9999;
 }
 .iconHeart:hover {
   stroke: #3470ff;

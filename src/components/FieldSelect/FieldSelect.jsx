@@ -23,7 +23,11 @@ export default function FieldSelect({ field, form, options, placeholder }) {
         onClick={() => setIsOpen(!isOpen)}
         onBlur={() => setIsOpen(false)}
       />
-      <Icon id={isOpen ? 'icon-up' : 'icon-down'} className={css.arrow} />
+      <Icon
+        id={isOpen ? 'icon-up' : 'icon-down'}
+        className={css.arrow}
+        onClick={() => setIsOpen(!isOpen)}
+      />
       {isOpen && (
         <ul className={css.selectList}>
           {options.map((option, index) => (

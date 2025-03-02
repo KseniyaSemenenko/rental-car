@@ -41,3 +41,34 @@
 .error {
   color: red;
 }
+
+/* Стиль для календаря */
+.customCalendar {
+  border-radius: 10px;
+  border: 2px solid #3498db; /* Змінили колір бордеру */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стиль для вибраної дати */
+.customCalendar .react-datepicker__day--selected {
+  background-color: #3498db; /* Колір для вибраної дати */
+  color: white; /* Колір тексту вибраної дати */
+  border-radius: 50%; /* Кругла форма для вибраної дати */
+}
+
+/* Стиль для поточної дати */
+.react-datepicker__day--today,
+.react-datepicker__month-text--today,
+.react-datepicker__quarter-text--today,
+.react-datepicker__year-text--today {
+  font-weight: bold;
+  color: red !important; /* Червоний колір для поточної дати */
+}
+
+/* Стиль для днів у минулому */
+.customCalendar .react-datepicker__day--disabled {
+  background-color: #f0f0f0; /* Світлий фон для минулих днів */
+  color: #ccc; /* Світлий текст */
+  pointer-events: none; /* Вимикаємо клікабельність */
+  opacity: 0.5; /* Напівпрозорі */
+}

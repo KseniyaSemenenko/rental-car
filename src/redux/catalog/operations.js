@@ -7,10 +7,20 @@ export const carsCatalogApi = axios.create({
 
 export const fetchAllCars = createAsyncThunk(
   'cars/fetchAll',
-  async ({ page = 1, limit = 12 }, thunkAPI) => {
+  async (
+    { page = 1, limit = 12, brand, rentalPrice, minMileage, maxMileage },
+    thunkAPI
+  ) => {
     try {
       const response = await carsCatalogApi.get('/cars', {
-        params: { page, limit },
+        params: {
+          page,
+          limit,
+          brand: brand || undefined,
+          rentalPrice: rentalPrice || undefined,
+          minMileage: minMileage || undefined,
+          maxMileage: maxMileage || undefined,
+        },
       });
 
       return response.data;
@@ -22,12 +32,19 @@ export const fetchAllCars = createAsyncThunk(
 
 export const loadMoreCars = createAsyncThunk(
   'cars/LoadMore',
-  async ({ page, limit }, thunkAPI) => {
+  async (
+    { page, limit, brand, rentalPrice, minMileage, maxMileage },
+    thunkAPI
+  ) => {
     try {
       const response = await carsCatalogApi.get('/cars', {
         params: {
           page,
           limit,
+          brand: brand || undefined,
+          rentalPrice: rentalPrice || undefined,
+          minMileage: minMileage || undefined,
+          maxMileage: maxMileage || undefined,
         },
       });
       return response.data;

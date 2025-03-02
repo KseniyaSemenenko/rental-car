@@ -4,6 +4,7 @@ import './App.css';
 import Layout from './components/Layout';
 import SvgSprite from './components/SvgSprite/SvgSprite';
 import { ToastContainer } from 'react-toastify';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 
 const WelcomePage = lazy(() => import('../src/pages/WelcomePage/WelcomePage'));
 const CatalogPage = lazy(() => import('../src/pages/CatalogPage/CatalogPage'));
@@ -27,7 +28,7 @@ function App() {
             <Route path="/" element={<WelcomePage />} />
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/catalog/:id" element={<CarPage />} />
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Suspense>
       </Layout>
