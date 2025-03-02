@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const savedFavorites = localStorage.getItem('favoriteCars');
 const initialState = {
-  favoriteCars: JSON.parse(localStorage.getItem('favoriteCars')) || [],
+  favoriteCars: savedFavorites ? JSON.parse(savedFavorites) : [],
 };
 
 const favoriteSlice = createSlice({
@@ -10,21 +11,13 @@ const favoriteSlice = createSlice({
   reducers: {
     addToFavorite: (state, action) => {
       const carId = action.payload;
-      console.log('Adding to favorites, current state: ', state.favoriteCars);
       if (!state.favoriteCars.includes(carId)) {
-        state.favoriteCars.push(carId);
-        localStorage.setItem(
-          'favoriteCars',
-          JSON.stringify(state.favoriteCars)
-        );
+        state.favoriteCars = [...state.favoriteCars, carId];
       }
+      localStorage.setItem('favoriteCars', JSON.stringify(state.favoriteCars));
     },
     removeFromFavorite: (state, action) => {
       const carId = action.payload;
-      console.log(
-        'Removing from favorites, current state: ',
-        state.favoriteCars
-      );
       state.favoriteCars = state.favoriteCars.filter(id => id !== carId);
       localStorage.setItem('favoriteCars', JSON.stringify(state.favoriteCars));
     },

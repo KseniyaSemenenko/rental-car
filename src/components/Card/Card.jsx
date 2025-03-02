@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import css from './Card.module.css';
 import { Icon } from '../Icon/Icon';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectFavoriteCars } from '../../redux/favorite/selectors';
+import { useDispatch } from 'react-redux';
 import { addToFavorite, removeFromFavorite } from '../../redux/favorite/slice';
 
-export default function Card({ car }) {
+export default function Card({ car, favoriteCars }) {
   const {
     brand,
     model,
@@ -22,24 +21,13 @@ export default function Card({ car }) {
   } = car;
 
   const dispatch = useDispatch();
-  const favoriteCars = useSelector(selectFavoriteCars);
-
-  console.log('Favorite cars from Redux state: ', favoriteCars);
 
   const toggleFavorite = () => {
-    console.log('Current favorites: ', favoriteCars);
-
     if (favoriteCars.includes(id)) {
-      console.log(`Removing car with id: ${id} from favorites`);
       dispatch(removeFromFavorite(id));
     } else {
-      console.log(`Adding car with id: ${id} to favorites`);
       dispatch(addToFavorite(id));
     }
-    console.log(
-      'Favorites in localStorage after toggle: ',
-      localStorage.getItem('favoriteCars')
-    );
   };
 
   const formatAddress = address.split(', ').slice(-2).join(' | ');

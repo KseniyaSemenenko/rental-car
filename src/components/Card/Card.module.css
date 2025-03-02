@@ -27,7 +27,9 @@
   top: 16px;
   right: 16px;
   cursor: pointer;
+  pointer-events: auto;
+  z-index: 9999;
 }
 .iconHeart:hover {
-  fill: #3470ff;
+  stroke: #3470ff;
 }
