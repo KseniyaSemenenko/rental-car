@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import './App.css';
 import Layout from './components/Layout';
 import SvgSprite from './components/SvgSprite/SvgSprite';
 import { ToastContainer } from 'react-toastify';

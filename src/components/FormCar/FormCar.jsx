@@ -2,11 +2,11 @@ import Button from '../Button/Button';
 import css from './FormCar.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { RentalCarSchema } from '../../validation/schemas';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DatePicker from 'react-datepicker';
 
 const initialValues = {
   name: '',
@@ -54,7 +54,6 @@ export default function FormCar() {
               onChange={date => setFieldValue('date', date)}
               dateFormat="dd-MM-yyyy"
               className={css.formField}
-              calendarClassName={css.customCalendar}
               placeholderText="Booking date"
               minDate={new Date()}
             />

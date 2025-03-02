@@ -33,12 +33,9 @@ export default function SearchForm() {
     dispatch(fetchBrands());
   }, [dispatch]);
 
-  const handleSubmit = (
-    values
-    // actions
-  ) => {
+  const handleSubmit = (values, actions) => {
     dispatch(setFilters(values));
-    // actions.resetForm();
+    actions.resetForm();
   };
 
   return (

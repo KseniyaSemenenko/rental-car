@@ -17,7 +17,7 @@ export default function CarProfile({ carDetails }) {
           {brand}&nbsp;
           {model}, {year}
         </h1>
-        <p className={css.idCar}>Id: 9582</p>
+        {/* <p className={css.idCar}>Id: 9582</p> */}
       </div>
       <div className={css.nameId}>
         <p>
