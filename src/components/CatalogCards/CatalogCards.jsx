@@ -1,13 +1,16 @@
 import { useSelector } from 'react-redux';
 import Card from '../Card/Card';
-import { selectCars } from '../../redux/catalog/selectors';
+import { selectCars, selectTotalCars } from '../../redux/catalog/selectors';
 import css from './CatalogCards.module.css';
 import Button from '../Button/Button';
 import { selectFavoriteCars } from '../../redux/favorite/selectors';
 
-export default function CatalogCards() {
+export default function CatalogCards({ handleLoadMore }) {
   const allCars = useSelector(selectCars);
   const favoriteCars = useSelector(selectFavoriteCars);
+  const totalCars = useSelector(selectTotalCars);
+
+  const isLoadMoreVisible = allCars.length < totalCars;
 
   return (
     <>
@@ -19,7 +22,9 @@ export default function CatalogCards() {
             </li>
           ))}
       </ul>
-      <Button text="Load more" variant="loadMore" />
+      {isLoadMoreVisible && (
+        <Button onClick={handleLoadMore} text="Load more" variant="loadMore" />
+      )}
     </>
   );
 }

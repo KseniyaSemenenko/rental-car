@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllCars, fetchBrands, fetchCarProfile } from './operations';
+import {
+  fetchAllCars,
+  fetchBrands,
+  fetchCarProfile,
+  loadMoreCars,
+} from './operations';
 
 const handlePending = state => {
   state.loading = true;
@@ -13,10 +18,18 @@ const carsSlice = createSlice({
   name: 'cars',
   initialState: {
     cars: [],
+    totalCars: 0,
     carProfile: null,
     brands: [],
     loading: false,
     error: null,
+    currentPage: 1,
+    currentCards: 12,
+  },
+  reducers: {
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
   },
   extraReducers: builder => {
     builder
@@ -25,8 +38,15 @@ const carsSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.cars = action.payload.cars;
+        state.totalCars = action.payload.totalCars;
       })
       .addCase(fetchAllCars.rejected, handleRejected)
+      .addCase(loadMoreCars.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.cars = [...state.cars, ...action.payload.cars];
+        state.totalCars = action.payload.totalCars;
+      })
       .addCase(fetchCarProfile.pending, handlePending)
       .addCase(fetchCarProfile.fulfilled, (state, action) => {
         state.loading = false;
@@ -44,4 +64,5 @@ const carsSlice = createSlice({
   },
 });
 
+export const { setCurrentPage } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

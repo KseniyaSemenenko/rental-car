@@ -7,9 +7,11 @@ export const carsCatalogApi = axios.create({
 
 export const fetchAllCars = createAsyncThunk(
   'cars/fetchAll',
-  async (_, thunkAPI) => {
+  async ({ page = 1, limit = 12 }, thunkAPI) => {
     try {
-      const response = await carsCatalogApi.get('/cars');
+      const response = await carsCatalogApi.get('/cars', {
+        params: { page, limit },
+      });
 
       return response.data;
     } catch (error) {
@@ -17,6 +19,29 @@ export const fetchAllCars = createAsyncThunk(
     }
   }
 );
+
+export const loadMoreCars = createAsyncThunk(
+  'cars/LoadMore',
+  async ({ page, limit }, thunkAPI) => {
+    try {
+      const response = await carsCatalogApi.get('/cars', {
+        params: {
+          page,
+          limit,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const setCurrentPage = page => ({
+  type: 'cars/setCurrentPage',
+  payload: page,
+});
+
 export const fetchCarProfile = createAsyncThunk(
   'cars/fetchCar',
   async (id, thunkAPI) => {
